@@ -8,6 +8,9 @@
 [![hacs][hacsbadge]][hacs]
 [![Project Maintenance][maintenance-shield]][user_profile]
 
+> [!NOTE]  
+> This is an active fork and maintained version of the original [ryanbdclark/owlet](https://github.com/ryanbdclark/owlet) repository.
+
 A custom component for the Owlet smart sock
 
 ## Installation
@@ -34,15 +37,15 @@ This integration provides the following entities:
 
 ---
 
-[commits-shield]: https://img.shields.io/github/commit-activity/w/ryanbdclark/owlet?style=for-the-badge
-[commits]: https://github.com/ryanbdclark/owlet/commits/main
-[hacs]: https://github.com/hacs/integration
+[commits-shield]: https://img.shields.io/github/commit-activity/w/WilliamsJChris/owlet?style=for-the-badge
+[commits]: https://github.com/WilliamsJChris/owlet/commits/main
+[hacs]: https://hacs.xyz/docs/use/download/download/
 [hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
 [license]: LICENSE
-[license-shield]: https://img.shields.io/github/license/ryanbdclark/owlet.svg?style=for-the-badge
-[maintenance-shield]: https://img.shields.io/badge/maintainer-Ryan%20Clark%20%40ryanbdclark-blue.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/ryanbdclark/owlet.svg?style=for-the-badge
-[releases]: https://github.com/ryanbdclark/owlet/releases
-[user_profile]: https://github.com/ryanbdclark
+[license-shield]: https://img.shields.io/github/license/WilliamsJChris/owlet.svg?style=for-the-badge
+[maintenance-shield]: https://img.shields.io/badge/maintainer-%40WilliamsJChris-blue.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/WilliamsJChris/owlet.svg?style=for-the-badge
+[releases]: https://github.com/WilliamsJChris/owlet/releases
+[user_profile]: https://github.com/WilliamsJChris
 [add-integration]: https://my.home-assistant.io/redirect/config_flow_start?domain=owlet
 [add-integration-badge]: https://my.home-assistant.io/badges/config_flow_start.svg
