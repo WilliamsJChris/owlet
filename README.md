@@ -29,7 +29,7 @@ The `Owlet` integration offers integration with the Owlet Smart Sock cloud servi
 This integration provides the following entities:
 
 - Binary sensors - charging status, high heart rate alert, low heart rate alert, high oxygen alert, low oxygen alert, low battery alert, lost power alert, sock diconnected alert, and sock status.
-- Sensors - battery level, oxygen saturation, oxygen saturation 10 minute average, heart rate, battery time remaining, signal strength, and skin temperature.
+- Sensors - battery level, oxygen saturation, oxygen saturation 10 minute average, heart rate, battery time remaining, signal strength, skin temperature, sleep state, and body position (Dream Sock v3).
 
 ## Options
 

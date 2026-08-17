@@ -107,6 +107,17 @@
                     "deep_sleep": "Sommeil profond"
                 }
             },
+            "bodyposition": {
+                "name": "Position du corps",
+                "state": {
+                    "no_data": "Aucune donnée",
+                    "undetected": "Non détecté",
+                    "on_back": "Sur le dos",
+                    "on_side": "Sur le côté",
+                    "tummy": "Sur le ventre",
+                    "moving": "En mouvement"
+                }
+            },
             "movement": {
                 "name": "Mouvement"
             },

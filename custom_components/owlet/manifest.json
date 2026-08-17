@@ -1,7 +1,6 @@
 {
   "domain": "owlet",
   "name": "Owlet Smart Sock",
-  "version": "1.0.0",
   "codeowners": [
     "@WilliamsJChris"
   ],
@@ -11,5 +10,6 @@
   "issue_tracker": "https://github.com/WilliamsJChris/owlet/issues",
   "requirements": [
     "pyowletapi==2025.4.1"
-  ]
+  ],
+  "version": "2026.8.1"
 }
