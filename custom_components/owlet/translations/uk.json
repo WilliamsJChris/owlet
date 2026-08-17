@@ -107,6 +107,17 @@
           "deep_sleep": "Deep sleep"
         }
       },
+      "bodyposition": {
+        "name": "Body position",
+        "state": {
+          "no_data": "No data",
+          "undetected": "Undetected",
+          "on_back": "On back",
+          "on_side": "On side",
+          "tummy": "On tummy",
+          "moving": "Moving"
+        }
+      },
       "movement": {
         "name": "Movement"
       },
