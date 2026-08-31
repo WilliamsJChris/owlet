@@ -4,11 +4,12 @@
 [![GitHub Activity][commits-shield]][commits]
 
 [![License][license-shield]][license]
-
 [![hacs][hacsbadge]][hacs]
-[![Project Maintenance][maintenance-shield]][user_profile]
 
-> [!NOTE]  
+[![Project Maintenance][maintenance-shield]][user_profile]
+[![Buy me a Celsius][celsius-shield]][celsius]
+
+> [!NOTE]  
 > This is an active fork and maintained version of the original [ryanbdclark/owlet](https://github.com/ryanbdclark/owlet) repository.
 
 A custom component for the Owlet smart sock
@@ -35,6 +36,12 @@ This integration provides the following entities:
 
 - Seconds between polling - Number of seconds between each call for data from the owlet cloud service, default is 5 seconds.
 
+## Support
+
+If you find this integration helpful and would like to support ongoing development:
+
+[![Buy me a Celsius][celsius-shield]][celsius]
+
 ---
 
 [commits-shield]: https://img.shields.io/github/commit-activity/w/WilliamsJChris/owlet?style=for-the-badge
@@ -49,3 +56,6 @@ This integration provides the following entities:
 [user_profile]: https://github.com/WilliamsJChris
 [add-integration]: https://my.home-assistant.io/redirect/config_flow_start?domain=owlet
 [add-integration-badge]: https://my.home-assistant.io/badges/config_flow_start.svg
+[celsius-shield]: https://img.shields.io/badge/Buy%20me%20a-Celsius-FF813F.svg?style=for-the-badge&logo=buymeacoffee&logoColor=white
+[celsius]: https://buymeacoffee.com/williamsjchris
+

@@ -9,7 +9,7 @@
         }
       },
       "reauth_confirm": {
-        "title": "Reauthentiaction required for Owlet",
+        "title": "Reauthentication required for Owlet",
         "data": {
           "password": "Password"
         }
@@ -20,7 +20,8 @@
       "invalid_email": "Entered email address is incorrect",
       "invalid_password": "Entered password is incorrect",
       "invalid_credentials": "Entered credentials are incorrect",
-      "unknown": "Unknown error occured"
+      "no_devices": "No devices found",
+      "unknown": "Unknown error occurred"
     },
     "abort": {
       "already_configured": "Device already configured",
