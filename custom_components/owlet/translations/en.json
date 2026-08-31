@@ -9,14 +9,15 @@
             "invalid_credentials": "Entered credentials are incorrect",
             "invalid_email": "Entered email address is incorrect",
             "invalid_password": "Entered password is incorrect",
-            "unknown": "Unknown error occured"
+            "no_devices": "No devices found",
+            "unknown": "Unknown error occurred"
         },
         "step": {
             "reauth_confirm": {
                 "data": {
                     "password": "Password"
                 },
-                "title": "Reauthentiaction required for Owlet"
+                "title": "Reauthentication required for Owlet"
             },
             "user": {
                 "data": {
