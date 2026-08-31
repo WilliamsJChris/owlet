@@ -4,9 +4,10 @@
 [![GitHub Activity][commits-shield]][commits]
 
 [![License][license-shield]][license]
-
 [![hacs][hacsbadge]][hacs]
+
 [![Project Maintenance][maintenance-shield]][user_profile]
+[![Buy Me a Celsius](https://buymeacoffee.com⚡&slug=williamsjchris&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=FFFFFF)](https://buymeacoffee.com/williamsjchris)
 
 > [!NOTE]  
 > This is an active fork and maintained version of the original [ryanbdclark/owlet](https://github.com/ryanbdclark/owlet) repository.
