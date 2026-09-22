@@ -53,6 +53,12 @@ async def async_init_integration(
         ), patch(
             "homeassistant.components.owlet.OwletAPI.get_devices",
             return_value=json.loads(load_fixture(devices_fixture, "owlet")),
+        ), patch(
+            "homeassistant.components.owlet.coordinator.resolve_profile_for_dsn",
+            return_value=None,
+        ), patch(
+            "homeassistant.components.owlet.coordinator.fetch_latest_body_position",
+            return_value="on_back",
         ):
             await hass.config_entries.async_setup(entry.entry_id)
             await hass.async_block_till_done()
