@@ -5,22 +5,23 @@
         "data": {
           "region": "Region",
           "username": "Email",
-          "password": "[%key:common::config_flow::data::password%]"
+          "password": "Password"
         }
       },
       "reauth_confirm": {
-        "title": "Reauthentiaction required for Owlet",
+        "title": "Reauthentication required for Owlet",
         "data": {
-          "password": "[%key:common::config_flow::data::password%]"
+          "password": "Password"
         }
       }
     },
     "error": {
-      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "cannot_connect": "Failed to connect",
       "invalid_email": "Entered email address is incorrect",
       "invalid_password": "Entered password is incorrect",
       "invalid_credentials": "Entered credentials are incorrect",
-      "unknown": "Unknown error occured"
+      "no_devices": "No devices found",
+      "unknown": "Unknown error occurred"
     },
     "abort": {
       "already_configured": "Device already configured",
@@ -105,6 +106,17 @@
           "awake": "Awake",
           "light_sleep": "Light sleep",
           "deep_sleep": "Deep sleep"
+        }
+      },
+      "bodyposition": {
+        "name": "Body position",
+        "state": {
+          "no_data": "No data",
+          "undetected": "Undetected",
+          "on_back": "On back",
+          "on_side": "On side",
+          "tummy": "On tummy",
+          "moving": "Moving"
         }
       },
       "movement": {

@@ -9,7 +9,7 @@
 [![Project Maintenance][maintenance-shield]][user_profile]
 [![Buy Me a Celsius][celsius-shield]][celsius]
 
-> [!NOTE]  
+> [!NOTE]  
 > This is an active fork and maintained version of the original [ryanbdclark/owlet](https://github.com/ryanbdclark/owlet) repository.
 
 A custom component for the Owlet smart sock
@@ -30,11 +30,17 @@ The `Owlet` integration offers integration with the Owlet Smart Sock cloud servi
 This integration provides the following entities:
 
 - Binary sensors - charging status, high heart rate alert, low heart rate alert, high oxygen alert, low oxygen alert, low battery alert, lost power alert, sock diconnected alert, and sock status.
-- Sensors - battery level, oxygen saturation, oxygen saturation 10 minute average, heart rate, battery time remaining, signal strength, and skin temperature.
+- Sensors - battery level, oxygen saturation, oxygen saturation 10 minute average, heart rate, battery time remaining, signal strength, skin temperature, sleep state, and body position (Dream Sock v3).
 
 ## Options
 
 - Seconds between polling - Number of seconds between each call for data from the owlet cloud service, default is 5 seconds.
+
+## Support
+
+If you find this integration helpful and would like to support ongoing development:
+
+[![Buy me a Celsius][celsius-shield]][celsius]
 
 ---
 
