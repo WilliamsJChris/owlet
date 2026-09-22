@@ -7,7 +7,7 @@
 [![hacs][hacsbadge]][hacs]
 
 [![Project Maintenance][maintenance-shield]][user_profile]
-[![Buy Me a Celsius](https://buymeacoffee.com⚡&slug=williamsjchris&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=FFFFFF)](https://buymeacoffee.com/williamsjchris)
+[![Buy Me a Celsius][celsius-shield]][celsius]
 
 > [!NOTE]  
 > This is an active fork and maintained version of the original [ryanbdclark/owlet](https://github.com/ryanbdclark/owlet) repository.
@@ -50,3 +50,5 @@ This integration provides the following entities:
 [user_profile]: https://github.com/WilliamsJChris
 [add-integration]: https://my.home-assistant.io/redirect/config_flow_start?domain=owlet
 [add-integration-badge]: https://my.home-assistant.io/badges/config_flow_start.svg
+[celsius-shield]: https://img.shields.io/badge/Buy%20Me%20a%20Celsius-FFDD00?logo=buymeacoffee&logoColor=black
+[celsius]: https://buymeacoffee.com/williamsjchris
