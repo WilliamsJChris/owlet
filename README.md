@@ -7,7 +7,7 @@
 [![hacs][hacsbadge]][hacs]
 
 [![Project Maintenance][maintenance-shield]][user_profile]
-[![Buy me a Celsius][celsius-shield]][celsius]
+[![Buy Me a Celsius][celsius-shield]][celsius]
 
 > [!NOTE]  
 > This is an active fork and maintained version of the original [ryanbdclark/owlet](https://github.com/ryanbdclark/owlet) repository.
@@ -56,6 +56,5 @@ If you find this integration helpful and would like to support ongoing developme
 [user_profile]: https://github.com/WilliamsJChris
 [add-integration]: https://my.home-assistant.io/redirect/config_flow_start?domain=owlet
 [add-integration-badge]: https://my.home-assistant.io/badges/config_flow_start.svg
-[celsius-shield]: https://img.shields.io/badge/Buy%20me%20a-Celsius-FF813F.svg?style=for-the-badge&logo=buymeacoffee&logoColor=white
+[celsius-shield]: https://img.shields.io/badge/Buy%20Me%20a%20Celsius-FFDD00?logo=buymeacoffee&logoColor=black
 [celsius]: https://buymeacoffee.com/williamsjchris
-
