@@ -65,51 +65,51 @@ async def async_setup_entry(
     async_add_entities(switches)
 
 
-# class OwletRecoveryModeSwitch(OwletBaseEntity, SwitchEntity):
-#     """Switch entity to monitor and control Owlet recovery mode."""
+class OwletRecoveryModeSwitch(OwletBaseEntity, SwitchEntity):
+    """Switch entity to monitor and control Owlet recovery mode."""
 
-#     _attr_has_entity_name = True
-#     _attr_name = "Recovery Mode"
-#     _attr_icon = "mdi:shield-refresh"
+    _attr_has_entity_name = True
+    _attr_name = "Recovery Mode"
+    _attr_icon = "mdi:shield-refresh"
 
-#     def __init__(self, coordinator: OwletCoordinator) -> None:
-#         super().__init__(coordinator)
-#         self._attr_unique_id = f"{self.sock.serial}_recovery_mode"
+    def __init__(self, coordinator: OwletCoordinator) -> None:
+        super().__init__(coordinator)
+        self._attr_unique_id = f"{self.sock.serial}_recovery_mode"
 
-#     @property
-#     def is_on(self) -> bool:
-#         """Return True if recovery mode is currently active."""
-#         response = self.sock.raw_properties.get("APP_CMD_RESPONSE", {})
-#         value = response.get("value", "")
-#         if isinstance(value, str):
-#             try:
-#                 value = json.loads(value)
-#             except json.JSONDecodeError:
-#                 return value.lower() == "true"
-#         if isinstance(value, dict):
-#             return str(value.get("val", "")).lower() == "true"
-#         return False
+    @property
+    def is_on(self) -> bool:
+        """Return True if recovery mode is currently active."""
+        response = self.sock.raw_properties.get("APP_CMD_RESPONSE", {})
+        value = response.get("value", "")
+        if isinstance(value, str):
+            try:
+                value = json.loads(value)
+            except json.JSONDecodeError:
+                return value.lower() == "true"
+        if isinstance(value, dict):
+            return str(value.get("val", "")).lower() == "true"
+        return False
 
-#     async def _set_recovery_mode(self, enabled: bool) -> None:
-#         """Set recovery mode and refresh the current device state."""
-#         payload = json.dumps(
-#             {"cmd": "mon_recovery", "val": "true" if enabled else "false"},
-#             separators=(",", ":"),
-#         )
-#         await self.sock._api.post_command(
-#             self.sock.serial,
-#             "APP_CMD_REQUEST",
-#             {"datapoint": {"metadata": {}, "value": payload}},
-#         )
-#         await self.coordinator.async_request_refresh()
+    async def _set_recovery_mode(self, enabled: bool) -> None:
+        """Set recovery mode and refresh the current device state."""
+        payload = json.dumps(
+            {"cmd": "mon_recovery", "val": "true" if enabled else "false"},
+            separators=(",", ":"),
+        )
+        await self.sock._api.post_command(
+            self.sock.serial,
+            "APP_CMD_REQUEST",
+            {"datapoint": {"metadata": {}, "value": payload}},
+        )
+        await self.coordinator.async_request_refresh()
 
-#     async def async_turn_on(self, **kwargs: Any) -> None:
-#         """Enable recovery mode."""
-#         await self._set_recovery_mode(True)
+    async def async_turn_on(self, **kwargs: Any) -> None:
+        """Enable recovery mode."""
+        await self._set_recovery_mode(True)
 
-#     async def async_turn_off(self, **kwargs: Any) -> None:
-#         """Disable recovery mode."""
-#         await self._set_recovery_mode(False)
+    async def async_turn_off(self, **kwargs: Any) -> None:
+        """Disable recovery mode."""
+        await self._set_recovery_mode(False)
 
 class OwletBaseSwitch(OwletBaseEntity, SwitchEntity):
     """Defines a Owlet switch."""
