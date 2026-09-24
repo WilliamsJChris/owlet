@@ -39,10 +39,6 @@ async def test_sensors_asleep(hass: HomeAssistant) -> None:
         hass.states.get("sensor.owlet_baby_care_sock_sleep_state").state
         == "light_sleep"
     )
-    assert (
-        hass.states.get("sensor.owlet_baby_care_sock_body_position").state
-        == "on_back"
-    )
 
 
 async def test_sensors_awake(hass: HomeAssistant) -> None:
@@ -74,10 +70,7 @@ async def test_sensors_awake(hass: HomeAssistant) -> None:
     )
     assert hass.states.get("sensor.owlet_baby_care_sock_skin_temperature").state == "35"
     assert hass.states.get("sensor.owlet_baby_care_sock_sleep_state").state == "awake"
-    assert (
-        hass.states.get("sensor.owlet_baby_care_sock_body_position").state
-        == "on_back"
-    )
+    
 
 
 async def test_sensors_charging(hass: HomeAssistant) -> None:
@@ -115,10 +108,6 @@ async def test_sensors_charging(hass: HomeAssistant) -> None:
         == "unknown"
     )
     assert hass.states.get("sensor.owlet_baby_care_sock_sleep_state").state == "unknown"
-    assert (
-        hass.states.get("sensor.owlet_baby_care_sock_body_position").state
-        == "unknown"
-    )
 
 
 async def test_sensors_v2(hass: HomeAssistant) -> None:

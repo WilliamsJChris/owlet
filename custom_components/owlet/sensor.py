@@ -21,7 +21,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
 
-from .const import BODY_POSITION_STATES, DOMAIN, SLEEP_STATES
+from .const import DOMAIN, SLEEP_STATES
 from .coordinator import OwletCoordinator
 from .entity import OwletBaseEntity
 
@@ -219,39 +219,4 @@ class OwletOxygenAverageSensor(OwletSensor):
                 and self.sock.properties["oxygen_10_av"] <= 100
             )
         )
-
-
-class OwletBodyPositionSensor(OwletBaseEntity, SensorEntity):
-    """Representation of an Owlet body position sensor."""
-
-    _attr_options = list(BODY_POSITION_STATES)
-    entity_description = OwletSensorEntityDescription(
-        key="body_position",
-        translation_key="bodyposition",
-        device_class=SensorDeviceClass.ENUM,
-        icon="mdi:human-baby-changing-table",
-        available_during_charging=False,
-    )
-
-    def __init__(
-        self,
-        coordinator: OwletCoordinator,
-    ) -> None:
-        """Initialize the sensor."""
-        super().__init__(coordinator)
-        self.entity_description = self.__class__.entity_description
-        self._attr_unique_id = f"{self.sock.serial}-body_position"
-
-    @property
-    def available(self) -> bool:
-        """Return if entity is available."""
-        return super().available and (
-            not self.sock.properties.get("charging")
-            or self.entity_description.available_during_charging
-        )
-
-    @property
-    def native_value(self) -> StateType:
-        """Return sensor value."""
-        return self.coordinator.body_position
 
