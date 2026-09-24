@@ -40,6 +40,13 @@ SWITCHES: tuple[OwletSwitchEntityDescription, ...] = (
         turn_off_fn=lambda sock: (lambda state: sock.control_base_station(state)),
         available_during_charging=False,
     ),
+    OwletSwitchEntityDescription(
+        key="mon_recovery",
+        translation_key="recovery_mode",
+        turn_on_fn=lambda sock: sock.control_recovery_mode(True),
+        turn_off_fn=lambda sock: sock.control_recovery_mode(False),
+        available_during_charging=True,
+    ),
 )
 
 
@@ -106,6 +113,43 @@ class OwletRecoveryModeSwitch(OwletBaseEntity, SwitchEntity):
 
 class OwletBaseSwitch(OwletBaseEntity, SwitchEntity):
     """Defines a Owlet switch."""
+
+    entity_description: OwletSwitchEntityDescription
+
+    def __init__(
+        self,
+        coordinator: OwletCoordinator,
+        description: OwletSwitchEntityDescription,
+    ) -> None:
+        """Initialize owlet switch platform."""
+        super().__init__(coordinator)
+        self.entity_description = description
+        self._attr_unique_id = f"{self.sock.serial}-{description.key}"
+        self._attr_is_on = False
+
+    @property
+    def available(self) -> bool:
+        """Return if entity is available."""
+        return super().available and (
+            not self.sock.properties["charging"]
+            or self.entity_description.available_during_charging
+        )
+
+    @property
+    def is_on(self) -> bool:
+        """Return if switch is on or off."""
+        return self.sock.properties[self.entity_description.key]
+
+    async def async_turn_on(self, **kwargs: Any) -> None:
+        """Turn on the switch."""
+        await self.entity_description.turn_on_fn(self.sock)(True)
+
+    async def async_turn_off(self, **kwargs: Any) -> None:
+        """Turn off the switch."""
+        await self.entity_description.turn_off_fn(self.sock)(False)
+
+class OwletRecoverySwitch(OwletBaseEntity, SwitchEntity):
+    """Defines a Owlet Recovery switch."""
 
     entity_description: OwletSwitchEntityDescription
 

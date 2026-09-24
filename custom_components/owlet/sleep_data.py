@@ -12,8 +12,6 @@ import aiohttp
 
 from pyowletapi.const import REGION_INFO
 
-from .const import decode_body_position
-
 _LOGGER = logging.getLogger(__name__)
 
 FIRESTORE_PROJECT = "owletcare-prod"
@@ -200,71 +198,3 @@ async def resolve_profile_for_dsn(
         profile_id=profile_id,
         device_version=device_version or "SS3",
     )
-
-
-async def fetch_latest_body_position(
-    session: aiohttp.ClientSession,
-    region: str,
-    refresh_token: str,
-    dsn: str,
-    device_version: str,
-    profile: ProfileContext | None = None,
-    lookback_hours: int = 4,
-) -> str | None:
-    """Return the latest decoded body position for a sock, if available."""
-    if profile is None:
-        profile = await resolve_profile_for_dsn(
-            session, region, refresh_token, dsn, device_version
-        )
-    if profile is None:
-        return None
-
-    try:
-        id_token, _user_id = await get_firebase_id_token(session, region, refresh_token)
-    except aiohttp.ClientError as err:
-        _LOGGER.debug("Firebase token refresh failed for sleep-data: %s", err)
-        return None
-
-    end = datetime.now(tz=UTC)
-    start = end - timedelta(hours=lookback_hours)
-    timezone = datetime.now(tz=ZoneInfo("localtime")).tzinfo
-    timezone_name = getattr(timezone, "key", "UTC")
-
-    params = {
-        "startTime": str(int(start.timestamp())),
-        "endTime": str(int(end.timestamp())),
-        "timeZone": timezone_name,
-        "version": profile.device_version,
-        "returnBodyPositions": "true",
-    }
-    url = (
-        f"{_sleep_data_host(region)}/v1/accounts/{profile.account_key}"
-        f"/profiles/{profile.profile_id}/sleep"
-    )
-
-    try:
-        async with session.get(
-            url,
-            params=params,
-            headers={"Authorization": id_token},
-        ) as response:
-            if response.status != 200:
-                text = await response.text()
-                _LOGGER.debug(
-                    "sleep-data request failed (%s): %s", response.status, text
-                )
-                return None
-            payload = await response.json()
-    except aiohttp.ClientError as err:
-        _LOGGER.debug("sleep-data request error: %s", err)
-        return None
-
-    data = payload.get("data") or {}
-    position_times = data.get("positionTimes") or []
-    body_positions = data.get("bodyPositions") or []
-
-    if not position_times or not body_positions:
-        return None
-
-    latest_code = body_positions[-1]
-    return decode_body_position(int(latest_code))
