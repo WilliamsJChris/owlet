@@ -39,6 +39,13 @@ SWITCHES: tuple[OwletSwitchEntityDescription, ...] = (
         turn_off_fn=lambda sock: (lambda state: sock.control_base_station(state)),
         available_during_charging=False,
     ),
+    OwletSwitchEntityDescription(
+        key="mon_recovery",
+        translation_key="recovery_mode",
+        turn_on_fn=lambda sock: (lambda state: sock.control_recovery_mode(state)),
+        turn_off_fn=lambda sock: (lambda state: sock.control_recovery_mode(state)),
+        available_during_charging=True,
+    ),
 )
 
 
